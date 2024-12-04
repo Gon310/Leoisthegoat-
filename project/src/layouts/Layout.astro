@@ -1,0 +1,67 @@
+---
+interface Props {
+  title?: string;
+}
+
+const { title = "LeoIsTheGOAT - The Future of DeFi" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  </head>
+  <body class="bg-gradient-dark min-h-screen">
+    <slot />
+    <script>
+      import AOS from 'aos';
+      import { SolflareWallet } from '@solflare-wallet/sdk';
+      
+      // Initialize AOS
+      AOS.init({
+        duration: 1000,
+        once: true
+      });
+
+      // Initialize Solflare
+      window.solflare = new SolflareWallet();
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --primary-color: #FFD700;
+  }
+  
+  html {
+    font-family: system-ui, sans-serif;
+    background: #13151a;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    margin: 0;
+  }
+  
+  @keyframes glow {
+    0% {
+      box-shadow: 0 0 5px var(--primary-color);
+    }
+    50% {
+      box-shadow: 0 0 20px var(--primary-color);
+    }
+    100% {
+      box-shadow: 0 0 5px var(--primary-color);
+    }
+  }
+  
+  .glow {
+    animation: glow 2s infinite;
+  }
+</style>

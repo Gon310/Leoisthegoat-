@@ -1,0 +1,28 @@
+---
+const socialLinks = [
+  {
+    platform: 'Twitter',
+    url: 'https://x.com/leothegoatcoin?s=21&t=PmlaY8XLuvkrjYgC111W2w',
+    icon: '/images/twitter.svg'
+  },
+  {
+    platform: 'Telegram',
+    url: 'https://t.me/LeoIsTheGoatofficial',
+    icon: '/images/telegram.svg'
+  }
+];
+---
+
+<div class="flex justify-center space-x-6">
+  {socialLinks.map(link => (
+    <a 
+      href={link.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="text-white hover:text-primary transition-colors"
+      data-aos="fade-up"
+    >
+      <img src={link.icon} alt={link.platform} class="w-8 h-8" />
+    </a>
+  ))}
+</div>
