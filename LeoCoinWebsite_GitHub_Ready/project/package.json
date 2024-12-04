@@ -1,0 +1,22 @@
+{
+  "name": "@example/basics",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^5.0.2",
+    "@astrojs/tailwind": "^5.1.0",
+    "@solana/web3.js": "^1.90.0",
+    "@solflare-wallet/sdk": "^1.4.2",
+    "tailwindcss": "^3.4.1",
+    "chart.js": "^4.4.1",
+    "date-fns": "^3.3.1",
+    "aos": "^2.3.4"
+  }
+}

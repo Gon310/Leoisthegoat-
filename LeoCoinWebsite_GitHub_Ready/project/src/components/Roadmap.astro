@@ -1,0 +1,54 @@
+---
+const phases = [
+  {
+    title: 'Phase 1',
+    items: ['Community Growth', 'Presale Launch', 'Initial Marketing Push']
+  },
+  {
+    title: 'Phase 2',
+    items: ['Binance Listing', 'Bybit Integration', 'Market Expansion']
+  },
+  {
+    title: 'Phase 3',
+    items: ['Ecosystem Development', 'Global Marketing', 'Strategic Partnerships']
+  }
+];
+---
+
+<section id="roadmap" class="py-20 bg-gradient-dark">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-center text-primary mb-12" data-aos="fade-up">Roadmap</h2>
+    <div class="relative">
+      {phases.map((phase, index) => (
+        <div class="roadmap-item" data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}>
+          <div class="bg-secondary p-6 rounded-lg border border-primary">
+            <h3 class="text-2xl font-bold text-primary mb-4">{phase.title}</h3>
+            <ul class="text-white space-y-2">
+              {phase.items.map(item => (
+                <li class="flex items-center">
+                  <span class="w-2 h-2 bg-primary rounded-full mr-2"></span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .roadmap-item {
+    @apply mb-8 relative;
+  }
+  
+  .roadmap-item::before {
+    content: '';
+    @apply absolute left-1/2 -translate-x-1/2 h-full w-1 bg-primary opacity-20;
+  }
+  
+  .roadmap-item:last-child::before {
+    @apply hidden;
+  }
+</style>

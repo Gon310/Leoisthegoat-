@@ -1,0 +1,19 @@
+---
+const links = [
+  { text: 'Home', href: '#' },
+  { text: 'Tokenomics', href: '#tokenomics' },
+  { text: 'Roadmap', href: '#roadmap' },
+  { text: 'FAQ', href: '#faq' }
+];
+---
+
+<nav class="hidden md:flex space-x-8">
+  {links.map(link => (
+    <a 
+      href={link.href}
+      class="text-white hover:text-primary transition-colors"
+    >
+      {link.text}
+    </a>
+  ))}
+</nav>

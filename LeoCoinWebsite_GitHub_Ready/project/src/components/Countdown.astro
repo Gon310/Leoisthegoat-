@@ -1,0 +1,60 @@
+---
+const presaleDate = new Date();
+presaleDate.setDate(presaleDate.getDate() + 15);
+---
+
+<div class="flex justify-center space-x-4 md:space-x-8" data-aos="fade-up">
+  <div class="countdown-item">
+    <span class="days">00</span>
+    <span class="label">Days</span>
+  </div>
+  <div class="countdown-item">
+    <span class="hours">00</span>
+    <span class="label">Hours</span>
+  </div>
+  <div class="countdown-item">
+    <span class="minutes">00</span>
+    <span class="label">Minutes</span>
+  </div>
+  <div class="countdown-item">
+    <span class="seconds">00</span>
+    <span class="label">Seconds</span>
+  </div>
+</div>
+
+<style>
+  .countdown-item {
+    @apply bg-secondary p-4 rounded-lg text-center min-w-[80px];
+  }
+  .countdown-item span {
+    @apply block text-2xl md:text-4xl font-bold text-primary;
+  }
+  .countdown-item .label {
+    @apply text-sm text-gray-400 mt-2;
+  }
+</style>
+
+<script>
+  import { formatDistance } from 'date-fns';
+
+  const targetDate = new Date();
+  targetDate.setDate(targetDate.getDate() + 15);
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = targetDate.getTime() - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.querySelector('.days').textContent = days.toString().padStart(2, '0');
+    document.querySelector('.hours').textContent = hours.toString().padStart(2, '0');
+    document.querySelector('.minutes').textContent = minutes.toString().padStart(2, '0');
+    document.querySelector('.seconds').textContent = seconds.toString().padStart(2, '0');
+  }
+
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
+</script>
